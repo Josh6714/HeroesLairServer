@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesLairLevelSend.CSharp.Plugins", "HeroesLairLevelSend.CSharp.Plugins.csproj", "{F22E7234-57EE-BD49-52D6-50C25632CD79}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroesLairLevelSend.CSharp", "HeroesLairLevelSend.CSharp.csproj", "{2847269B-0F9E-3223-5DB8-94E3903AB17D}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F22E7234-57EE-BD49-52D6-50C25632CD79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22E7234-57EE-BD49-52D6-50C25632CD79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F22E7234-57EE-BD49-52D6-50C25632CD79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F22E7234-57EE-BD49-52D6-50C25632CD79}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2847269B-0F9E-3223-5DB8-94E3903AB17D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2847269B-0F9E-3223-5DB8-94E3903AB17D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2847269B-0F9E-3223-5DB8-94E3903AB17D}.Release|Any CPU.ActiveCfg = Release|Any CPU
