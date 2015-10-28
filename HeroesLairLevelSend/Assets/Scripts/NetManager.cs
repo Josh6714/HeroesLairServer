@@ -19,10 +19,12 @@ public class NetManager : NetworkManager {
 
     const short spawnMsgType = 1011;
     const short doneMsgType = 1012;
+    const short levelMsgType = 1013;
     short MsgType;
 
     NetworkPlayer player1;
     LevelMessage msg = new LevelMessage();
+    LevelObject levelMessage = new LevelObject();
     public Manager gManage;
     public void Start()
     {
@@ -41,9 +43,8 @@ public class NetManager : NetworkManager {
         NetworkServer.RegisterHandler(scaleYMsgType, OnClientReadyToBeginMessage);
         NetworkServer.RegisterHandler(scaleZMsgType, OnClientReadyToBeginMessage);
 
+
         msg.message = "Yo";
-        msg.width = 10;
-        msg.height = 20;
         MsgType = serverMsgType;
     }
 
@@ -59,6 +60,17 @@ public class NetManager : NetworkManager {
         else
         {
             Debug.Log("ERROR: Not connected to client");
+        }
+    }
+
+    public void SendReadyToBeginLevel(int myId)
+    {
+        if(connectionId != 0)
+        {
+            Debug.Log("Attempting to Send Level");
+            {
+                NetworkServer.SendToClient(connectionId, levelMsgType, levelMessage);
+            }
         }
     }
 
@@ -142,36 +154,37 @@ public class NetManager : NetworkManager {
     {
         if (gManage.ReadySend == true)
         {
-            for (int i = 0; i < gManage.LevelObjects.Count; i++)
-            {
-                msg.message = gManage.LevelObjects[i].tag;
-                MsgType = tagMsgType;
-                SendReadyToBeginMessage(0);
+            levelMessage.Whatever = gManage.blahh.Whatever;
+            //for (int i = 0; i < gManage.LevelObjects.Count; i++)
+            //{
+            //    msg.message = gManage.LevelObjects[i].tag;
+            //    MsgType = tagMsgType;
+            //    SendReadyToBeginMessage(0);
 
-                msg.message = gManage.LevelObjects[i].transform.position.x.ToString();
-                MsgType = locationXMsgType;
-                SendReadyToBeginMessage(0);
+            //    msg.message = gManage.LevelObjects[i].transform.position.x.ToString();
+            //    MsgType = locationXMsgType;
+            //    SendReadyToBeginMessage(0);
 
-                msg.message = gManage.LevelObjects[i].transform.position.y.ToString();
-                MsgType = locationYMsgType;
-                SendReadyToBeginMessage(0);
+            //    msg.message = gManage.LevelObjects[i].transform.position.y.ToString();
+            //    MsgType = locationYMsgType;
+            //    SendReadyToBeginMessage(0);
 
-                msg.message = gManage.LevelObjects[i].transform.position.z.ToString();
-                MsgType = locationZMsgType;
-                SendReadyToBeginMessage(0);
+            //    msg.message = gManage.LevelObjects[i].transform.position.z.ToString();
+            //    MsgType = locationZMsgType;
+            //    SendReadyToBeginMessage(0);
 
-                msg.message = gManage.LevelObjects[i].transform.localScale.x.ToString();
-                MsgType = scaleXMsgType;
-                SendReadyToBeginMessage(0);
+            //    msg.message = gManage.LevelObjects[i].transform.localScale.x.ToString();
+            //    MsgType = scaleXMsgType;
+            //    SendReadyToBeginMessage(0);
 
-                msg.message = gManage.LevelObjects[i].transform.localScale.y.ToString();
-                MsgType = scaleYMsgType;
-                SendReadyToBeginMessage(0);
+            //    msg.message = gManage.LevelObjects[i].transform.localScale.y.ToString();
+            //    MsgType = scaleYMsgType;
+            //    SendReadyToBeginMessage(0);
 
-                msg.message = gManage.LevelObjects[i].transform.localScale.z.ToString();
-                MsgType = scaleZMsgType;
-                SendReadyToBeginMessage(0);
-            }
+            //    msg.message = gManage.LevelObjects[i].transform.localScale.z.ToString();
+            //    MsgType = scaleZMsgType;
+            //    SendReadyToBeginMessage(0);
+            //}
             gManage.ReadySend = false;
             MsgType = spawnMsgType;
             msg.message = "true";
