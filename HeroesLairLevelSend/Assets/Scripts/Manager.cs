@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 
 public class Manager : MonoBehaviour {
-    public bool ReadySend = false;
-    public List<GameObject> LevelObjects = new List<GameObject>();
-    public LevelObject blahh = new LevelObject();
+    public static bool ReadySend = false;
+    public static List<GameObject> listOfObjects = new List<GameObject>();
+    public List<GameObject> listOfShit = new List<GameObject>();
 	// Use this for initialization
 	void Start () {
         DontDestroyOnLoad(gameObject);
@@ -25,12 +25,14 @@ public class Manager : MonoBehaviour {
             {
                 if(obj.tag != "DontDestroy")
                 {
-                    //LevelObjects.Add(obj);
-                   LevelObjects blah = new LevelObjects(obj.tag, obj.transform.position.x, obj.transform.position.y, obj.transform.rotation.z);
-                   blahh.Whatever.Add(blah);
+                    listOfObjects.Add(obj);
+                   //LevelObjects blah = new LevelObjects(obj.tag, obj.transform.position.x, obj.transform.position.y, obj.transform.rotation.z);
+                   //blahh.Whatever.Add(blah);
                 }
             }
-            ReadySend = true;
+            listOfShit = listOfObjects;
+            LevelObject.startSend = true;
+            //ReadySend = true;
         }
     }
 }

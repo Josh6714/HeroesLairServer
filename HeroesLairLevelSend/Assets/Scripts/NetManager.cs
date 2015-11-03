@@ -23,7 +23,7 @@ public class NetManager : NetworkManager {
     short MsgType;
 
     NetworkPlayer player1;
-    LevelMessage msg = new LevelMessage();
+    public static LevelMessage msg = new LevelMessage();
     LevelObject levelMessage = new LevelObject();
     public Manager gManage;
     public void Start()
@@ -69,7 +69,7 @@ public class NetManager : NetworkManager {
         {
             Debug.Log("Attempting to Send Level");
             {
-                NetworkServer.SendToClient(connectionId, levelMsgType, levelMessage);
+               // NetworkServer.SendToClient(connectionId, levelMsgType, levelMessage);
             }
         }
     }
@@ -152,9 +152,9 @@ public class NetManager : NetworkManager {
 
     void Update()
     {
-        if (gManage.ReadySend == true)
+        if (Manager.ReadySend == true)
         {
-            levelMessage.Whatever = gManage.blahh.Whatever;
+            //levelMessage.Whatever = gManage.blahh.Whatever;
             //for (int i = 0; i < gManage.LevelObjects.Count; i++)
             //{
             //    msg.message = gManage.LevelObjects[i].tag;
@@ -185,7 +185,9 @@ public class NetManager : NetworkManager {
             //    MsgType = scaleZMsgType;
             //    SendReadyToBeginMessage(0);
             //}
-            gManage.ReadySend = false;
+            Manager.ReadySend = false;
+            MsgType = levelMsgType;
+            SendReadyToBeginMessage(0);
             MsgType = spawnMsgType;
             msg.message = "true";
             SendReadyToBeginMessage(0);

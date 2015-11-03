@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\DoorEnter.cs" />
     <Compile Include="Assets\Scripts\LevelMessage.cs" />
     <Compile Include="Assets\Scripts\LevelObject.cs" />
+    <Compile Include="Assets\Scripts\LgJsonData_Test.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\MessageSender.cs" />
     <Compile Include="Assets\Scripts\NetManager.cs" />
