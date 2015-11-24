@@ -110,6 +110,15 @@ public class Level : LgJsonDictionary, IJsonable
         bool isValid = false;
         Debug.Log("Checking if level is valid to player");
 
+        /*
+         * Calculate level object credits
+        */ 
+        
+
+        /*
+         * Determine if it's valid
+        */ 
+
         isValid = true; //Debug, sets to true
 
         Debug.Log("Level Valid = " + isValid);
@@ -258,6 +267,8 @@ public class Request : LgJsonDictionary, IJsonable
     {
         Debug.Log("Handling Request");
         // TODO: put code that does something with this object
+
+        if()
     }
 }
 

@@ -293,7 +293,19 @@ public class serverMenu : MonoBehaviour {
 
     /*
      * Other Functions
-    */ 
+    */
+
+    public void LogoutGame()
+    {
+        //Setup Canvases
+        menuCanvas.gameObject.SetActive(false);
+        loginCanvas.gameObject.SetActive(true);
+        loginAlert.gameObject.SetActive(false);
+
+        //Clear Login Input
+        loginUInput.text = "";
+        loginPInput.text = "";
+    }
 
     public void QuitGame()
     {
